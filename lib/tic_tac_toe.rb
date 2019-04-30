@@ -25,17 +25,25 @@ end
   board[index] = boardCharacter
 end
 
- def position_taken?(board, location)
-  board[location] != " " && board[location] != ""
+def position_taken?(board, index)
+   if(board[index] == " " || board[index] == "" || board[index] == nil)
+       false
+     else
+       true
+     end
 end
 
- def valid_move?(board, position)
-  position.to_i.between?(1,9) && !position_taken?(board, position.to_i-1)
+ def valid_move?(board, index)
+  if position_taken?(board, index) || !(index.between?(0,8))
+    false
+  else
+    true
+   end
 end
 
- def turn(board)
+def turn(board)
   puts "Please enter 1-9:"
-  input = gets.strip
+  input = gets.chomp
   index = input_to_index(input)
   if valid_move?(board, index)
     move(board, index, current_player(board))
