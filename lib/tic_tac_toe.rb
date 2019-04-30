@@ -56,19 +56,19 @@ end
 
  def won?(board)
 
-   WIN_COMBINATIONS.detect do |position|
+   WIN_COMBINATIONS.detect do |win_combination|
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
     win_index_3 = win_combination[2]
 
-     position_1 = board[win_index_1]
+    position_1 = board[win_index_1]
     position_2 = board[win_index_2]
     position_3 = board[win_index_3]
 
-     if board[position_1[0]] == "X" && board[position_2[1]] == "X" && board[position_3[2]] == "X"
-      position
-    elsif board[position_1[0]] == "O" && board[position_2[1]] == "O" && board[position_3[2]] == "O"
-      position
+     if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combination
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combination
     else
       false
     end
