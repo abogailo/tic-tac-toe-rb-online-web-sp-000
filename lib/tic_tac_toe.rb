@@ -22,8 +22,9 @@ def input_to_index(input)
 end
 
 def move(board, index, boardCharacter = "X")
-
+  if boardCharacter != '0'
   board[index] = boardCharacter
+end
 end
 
 def position_taken?(board, index)
